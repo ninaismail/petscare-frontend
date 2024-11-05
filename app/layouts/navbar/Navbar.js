@@ -26,7 +26,7 @@ const Navbar = () => {
 
 
     const changeColor = () => {
-        if (window.pageYOffset > 10) {
+        if (window.pageYOffset > 0) {
           setColor(true);
         } else {
           setColor(false);
