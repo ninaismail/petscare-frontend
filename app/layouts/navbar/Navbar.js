@@ -26,12 +26,9 @@ const Navbar = () => {
 
 
     const changeColor = () => {
-        console.log("Scroll position:", window.pageYOffset); // Logs scroll position
-        if (window.pageYOffset > 0) {
-          console.log("Setting color to true");
+        if (window.pageYOffset > 10) {
           setColor(true);
         } else {
-          console.log("Setting color to false");
           setColor(false);
         }
       };
@@ -47,8 +44,8 @@ const Navbar = () => {
       }, []);
     
     return (
-        <header className={`fixed left-1/2 transform -translate-x-1/2 top-0 h-[67px] z-[9] sm:w-10/12 w-11/12 lg:flex justify-between items-center mx-auto pt-4 mt-10 tansition-height duration-600 ${
-            color === true ? "bg-white shadow border-none pb-0" : "pb-12 border-b border-secondary"}
+        <header className={`fixed left-1/2 -translate-x-1/2 top-10 h-[67px] z-[9] lg:py-12 py-4 border-b border-secondary sm:w-10/12 w-11/12 lg:flex justify-between items-center mx-auto px-4 tansition-height duration-600 ${
+            color ? "bg-white shadow rounded-[18px]" : ""}
             ${isOpen ? "h-fit rounded-[18px] bg-white shadow" : ""}`}>
             <Link id="Home" aria-label="go to home" href="/">
             <Image
@@ -73,13 +70,13 @@ const Navbar = () => {
                     </li>
                 ))}
             </ul> 
-            <div className="lg:flex justify-end w-2/12 hidden">
+            <div className="justify-end hidden w-2/12 lg:flex">
             <Link id="call-us" aria-label="call us" href="tel:+96171043224" prefetch={false} scroll={false} className="flex gap-2 cursor-pointer font-[montserrat] text-center text-primary hover:brightness-125 transition-all duration-400">
                 <span><Phone styles="w-5 aspect-square"/></span>
                 +0123 456 789</Link>
             </div>
             {/* Mobile */}
-            <button aria-label="open menu" class="absolute flex items-center justify-center w-8 h-8 right-4 lg:hidden top-5"
+            <button aria-label="open menu" class="absolute flex items-center justify-center w-8 h-8 right-4 lg:hidden top-6"
                 onClick={toggleOpen}>
                 {isOpen ? (
                     <h1 class="text-2xl text-secondary">X</h1>
