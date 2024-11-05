@@ -8,7 +8,7 @@ const Hero = () => {
         <section className="bg-accent/30 lg:h-screen">
         <div className="sm:w-10/12 w-11/12 h-full flex justify-between items-center flex-wrap mx-auto gap-6 pt-40">
             <div className="2xl:w-4/12 lg:w-5/12 w-full space-y-10">
-                <h1 class="text-primary 2xl:text-9xl lg:text-8xl md:text-7xl sm:text-6xl text-5xl font-[memoire] leading-relaxed">We are here to care of your <br className="max-2xl:hidden"/><span class="text-secondary">little pets.</span></h1>
+                <h1 class="text-primary 2xl:text-9xl lg:text-8xl md:text-7xl sm:text-6xl text-5xl font-[memoire] lg:leading-relaxed">We are here to care of your <br className="max-2xl:hidden"/><span class="text-secondary">little pets.</span></h1>
                 <p class="tracking-wide text-justify font-[montserrat] lg:w-2/3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever.</p>
                 <div className="flex flex-wrap gap-6 items-center">

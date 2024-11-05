@@ -26,25 +26,30 @@ const Navbar = () => {
 
 
     const changeColor = () => {
-      if (window.pageYOffset > 0) {
-        setColor(true);
-      } else {
-        setColor(false);
-      }
-    };
-    useEffect(() => {
-      window.addEventListener("scroll", changeColor);
-  
-      return () => {
-        window.removeEventListener("scroll", changeColor);
+        console.log("Scroll position:", window.pageYOffset); // Logs scroll position
+        if (window.pageYOffset > 0) {
+          console.log("Setting color to true");
+          setColor(true);
+        } else {
+          console.log("Setting color to false");
+          setColor(false);
+        }
       };
-    }, []);
+    
+      useEffect(() => {
+        // Add event listener for scroll
+        window.addEventListener("scroll", changeColor);
+    
+        // Clean up event listener on unmount
+        return () => {
+          window.removeEventListener("scroll", changeColor);
+        };
+      }, []);
     
     return (
-        <header className={`fixed left-1/2 transform -translate-x-1/2 top-0 h-[67px] z-[9] sm:w-10/12 w-11/12 lg:flex justify-between items-center mx-auto pt-4 mt-10 tansition-all duration-600 ${
-            color ? "bg-white shadow border-none pb-0" : "pb-12 border-b border-secondary",
-            isOpen ? "h-fit rounded-lg bg-white shadow" : ""
-        }`}>
+        <header className={`fixed left-1/2 transform -translate-x-1/2 top-0 h-[67px] z-[9] sm:w-10/12 w-11/12 lg:flex justify-between items-center mx-auto pt-4 mt-10 tansition-height duration-600 ${
+            color === true ? "bg-white shadow border-none pb-0" : "pb-12 border-b border-secondary"}
+            ${isOpen ? "h-fit rounded-[18px] bg-white shadow" : ""}`}>
             <Link id="Home" aria-label="go to home" href="/">
             <Image
                 src="/logo.webp"
@@ -52,8 +57,8 @@ const Navbar = () => {
                 width={156}
                 height={58}
                 priority
-                    responsive
-                    className="max-lg:ps-4"
+                responsive
+                className="max-lg:ps-4"
                 />
             </Link>
             {/* Desktop */}
@@ -69,7 +74,7 @@ const Navbar = () => {
                 ))}
             </ul> 
             <div className="lg:flex justify-end w-2/12 hidden">
-            <Link id="call-us" aria-label="call us" href="tel:+96171043224" prefetch={false} scroll={false} class="flex gap-2 cursor-pointer font-[montserrat] text-center text-primary hover:brightness-125 transition-all duration-400">
+            <Link id="call-us" aria-label="call us" href="tel:+96171043224" prefetch={false} scroll={false} className="flex gap-2 cursor-pointer font-[montserrat] text-center text-primary hover:brightness-125 transition-all duration-400">
                 <span><Phone styles="w-5 aspect-square"/></span>
                 +0123 456 789</Link>
             </div>
